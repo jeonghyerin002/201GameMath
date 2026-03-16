@@ -7,11 +7,17 @@ public class ClickToMove : MonoBehaviour
     private Vector2 mouseScreenPosition;
     private Vector3 targetPosition;
     bool isMoving = false;
+    bool isSprinting;
 
     public void OnPoint(InputValue value)
     {
         mouseScreenPosition = value.Get<Vector2>();
     }
+    public void OnSprint(InputValue value)
+    {
+        isSprinting = value.isPressed;
+    }
+
 
     public void OnClick(InputValue value)
     {
@@ -45,7 +51,16 @@ public class ClickToMove : MonoBehaviour
             float magnitude = Mathf.Sqrt(sqrMagnitude);
 
             direction = direction / magnitude;
+
+            if (isSprinting)
+            {
+                float currentDistance = magnitude;
+                float sprintSpeed = moveSpeed * 1.5f;
+
+                transform.position += direction * sprintSpeed * Time.deltaTime;
+            }
             transform.position += direction * moveSpeed * Time.deltaTime;
+            
 
 
             if(magnitude < 0.1f)

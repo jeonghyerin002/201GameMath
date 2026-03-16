@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public bool isSprinting;
     Vector2 moveInput;
 
     Vector3 normalizedVector;
@@ -11,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+    }
+    public void OnSprint(InputValue value)
+    {
+        isSprinting = value.isPressed;
     }
 
 
