@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerRotate();
-        EnemyCheck();
     }
     void PlayerRotate() //플레이어 회전 움직임
     {
@@ -42,10 +41,10 @@ public class PlayerController : MonoBehaviour
         transform.Translate(moveDir);
     }
 
-    void EnemyCheck()
+    void EnemyCheck(Transform enemy)
     {
         Vector3 forward = transform.forward;
-        Vector3 dirToTarget = (target.position - transform.forward).normalized;
+        Vector3 dirToTarget = (enemy.position - transform.forward).normalized;
 
         Vector3 crossProduct = Vector3.Cross(forward, dirToTarget);
 
@@ -62,6 +61,8 @@ public class PlayerController : MonoBehaviour
     }
     public void PlayerParrying(InputValue value)
     {
-
+        //왼쪽이고, 
     }
+
+    // public void 어택(Transform enemy)
 }

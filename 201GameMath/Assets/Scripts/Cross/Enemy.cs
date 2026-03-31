@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        //공격 할 때 플레이어 쪽에서 패링 확인
         transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
 
         float distance = (player.position - transform.position).magnitude;
@@ -55,6 +56,7 @@ public class Enemy : MonoBehaviour
                 if (distance < 0.1f)
                 {
                     CheckParry();
+                    // 어택플레이어()
                 }
             }
         }
