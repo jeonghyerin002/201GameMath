@@ -12,8 +12,8 @@ public class LerpMover : MonoBehaviour
     {
         if (t < 1f)
         {
-            //t = Mathf.PingPong(Time.time / duration, 1f); //PIngPong = 정해진 두 값을 왔다 갔다.
-            t += Time.deltaTime / duration;
+            t = Mathf.PingPong(Time.time / duration, 1f); //PIngPong = 정해진 두 값을 왔다 갔다.
+            //t += Time.deltaTime / duration;
 
             //Vector3 a = startPos.position;
             //Vector3 b = endPos.position;
